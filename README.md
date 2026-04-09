@@ -1,25 +1,46 @@
-# 🎮 ĐỒ ÁN NHÓM: JAVA TETRIS GAME
-## 👥 1. Thông tin thành viên & Phân công
-Nhóm chúng em gồm 2 thành viên, cùng phối hợp xây dựng và phát triển mã nguồn.
-| Họ và Tên | MSSV | Vai trò chính | Nhiệm vụ chi tiết |
-| :--- | :--- | :--- | :--- |
-| **[Lê Thị Thu Phương]** | [3120225122] | **Game Logic Developer** | Xây dựng thuật toán va chạm, xử lý xoay khối hình, logic xóa hàng và quản lý hệ thống lưu điểm cao nhất (`best_score.txt`). |
-| **[Phan Thị Diệu Hoa]** | [3120225054] | **UI/UX & Graphics Designer** | Thiết kế giao diện đồ họa bằng Swing, xử lý màu sắc khối hình, tích hợp hình nền, âm thanh và quản lý kho lưu trữ GitHub. |
----
-## 📝 2. Giới thiệu dự án
-Dự án là một phiên bản hiện đại của trò chơi xếp gạch (Tetris) cổ điển, được viết hoàn toàn bằng ngôn ngữ **Java**. 
-- **Đồ họa:** Sử dụng thư viện `javax.swing` và `java.awt`.
-- **Tính năng:** - Đầy đủ 7 loại khối hình (I, J, L, O, S, T, Z) với màu sắc riêng biệt.
-  - Chức năng lưu điểm kỷ lục (Best Score) vào file cục bộ.
-  - Chế độ Tạm dừng (Pause) và Kết thúc game (Game Over).
-  - Tích hợp hình nền động và giao diện trực quan.
----
-## 🛠 3. Hướng dẫn cài đặt và khởi chạy
-Vì dự án được phát triển trên môi trường Java tiêu chuẩn, thầy/cô và các bạn có thể chạy nhanh theo các bước:
-1. **Yêu cầu hệ thống:** Đã cài đặt JDK 11 hoặc mới hơn.
-2. **Tải mã nguồn:** `git clone [Link-repo-cua-ban]`
-3. **Chạy chương trình:**
-   Mở Terminal/Command Prompt tại thư mục chứa file và gõ:
+# 🕹️ JAVA TETRIS PROJECT
+> **Bài tập lớn cuối kỳ môn Lập trình Java**
+> **Giảng viên hướng dẫn:** [Tên thầy/cô]
+
+## 📝 Giới thiệu dự án (Description)
+Dự án thực hiện xây dựng trò chơi **Tetris (Xếp gạch)** kinh điển trên nền tảng Java Desktop. Ứng dụng tập trung vào việc xử lý logic hình học, quản lý trạng thái mảng hai chiều và kỹ thuật xử lý đa luồng (Multi-threading) để tạo ra trải nghiệm chơi mượt mà.
+* **Mục tiêu:** Vận dụng kiến thức về lập trình hướng đối tượng (OOP), xử lý sự kiện (Event Handling) và đồ họa Swing/AWT.
+* **Thành quả:** Một trò chơi hoàn chỉnh với đầy đủ tính năng tính điểm, tăng cấp độ và giao diện trực quan.
+
+## 👥 Thông tin nhóm (Team Members)
+| STT | Họ và Tên | Mã Sinh Viên | Vai trò / Nhiệm vụ |
+|---|---|---|---|
+| 1 | [Tên Nhóm Trưởng] | [Mã SV] | **Leader**: Quản lý Game Loop, Xử lý va chạm, Logic xoay khối |
+| 2 | [Tên Thành Viên 2] | [Mã SV] | **Developer**: Thiết kế GUI (Board), Xử lý đồ họa Graphics2D |
+| 3 | [Tên Thành Viên 3] | [Mã SV] | **Tester & Report**: Quản lý điểm số, Xử lý File I/O, Viết báo cáo |
+
+## ✨ Các chức năng chính (Features)
+- [x] **7 Loại khối gạch (Tetrominoes):** Đầy đủ các khối I, J, L, O, S, T, Z với màu sắc riêng biệt.
+- [x] **Điều khiển bàn phím:** - `Phím Trái/Phải`: Di chuyển khối.
+    - `Phím Lên`: Xoay khối gạch.
+    - `Phím Xuống`: Rơi nhanh (Soft Drop).
+    - `Phím Space`: Rơi tức thì (Hard Drop).
+    - `Phím P`: Tạm dừng trò chơi (Pause).
+- [x] **Logic xử lý hàng:** Tự động phát hiện và xóa các hàng đã đầy, đẩy các khối phía trên xuống.
+- [x] **Hệ thống Score & Level:** Điểm số tăng dần dựa trên số hàng xóa được; tốc độ rơi tăng dần khi lên cấp.
+- [x] **Preview Next Piece:** Hiển thị khối gạch chuẩn bị xuất hiện tiếp theo.
+- [x] **Lưu kỷ lục (Highscore):** Lưu trữ điểm số cao nhất qua các phiên chơi bằng File I/O.
+
+## 💻 Công nghệ & Thư viện (Technologies)
+* **Ngôn ngữ:** Java (JDK 17+)
+* **Thư viện đồ họa:** Java Swing, AWT.
+* **Kỹ thuật trọng tâm:** * `Timer`: Điều khiển nhịp độ game.
+    * `Graphics2D`: Vẽ giao diện và các khối màu.
+    * `Mảng 2 chiều`: Quản lý ma trận bàn cờ $22 \times 10$.
+
+## 📂 Cấu trúc mã nguồn (Project Structure)
+Dự án được tổ chức theo mô hình phân lớp rõ ràng:
+* **`Tetris.java`**: Lớp khởi tạo chương trình, quản lý cửa sổ (JFrame) và các thành phần phụ (Score, Level).
+* **`Board.java`**: Trái tim của game, xử lý logic va chạm, vẽ lại màn hình và điều khiển luồng game.
+* **`Shape.java`**: Định nghĩa tọa độ, hình dạng và logic xoay của 7 loại khối gạch.
+* **`Data/`**: Thư mục lưu trữ file điểm cao (.txt hoặc .dat).
+
+## 🚀 Hướng dẫn cài đặt
+1. Clone dự án:
    ```bash
-   javac TetrisGame.java
-   java TetrisGame
+   git clone [https://github.com/username/java-tetris.git](https://github.com/username/java-tetris.git)
